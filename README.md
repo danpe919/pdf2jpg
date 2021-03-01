@@ -1,9 +1,21 @@
 # pdf2jpg
 
-PDF file converter
+PDF file converter to JPG
+
+## Environment
+
+- Windows 10
+- Python 3.7
+- Poetry
 
 ## Installation
 
-```bash
+```bat
 poetry install
+```
+
+## Build
+
+```bat
+build.bat
 ```

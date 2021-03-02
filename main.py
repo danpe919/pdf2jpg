@@ -21,6 +21,7 @@ def resource_path(relative_path: str):
 
 
 def pdf2jpg(filename: str, output: str):
+    print(f"{filename}: 変換中...", end=" ")
     p = Path(filename)
     base = p.stem
 
@@ -28,17 +29,16 @@ def pdf2jpg(filename: str, output: str):
     images = convert_from_path(Path(filename), poppler_path=libs)
     for i, image in enumerate(images):
         image.save(f"{output}/{base}-{i+1}.jpg", "jpeg")
+    print("OK")
 
 
 def main():
-    filename = sys.argv[1]
-    target = Path(filename)
-
     output = DESKTOP / "output"
     os.makedirs(output, exist_ok=True)
 
-    print(f"{filename}: 変換中...")
-    pdf2jpg(target, output)
+    for filename in sys.argv[1:]:
+        target = Path(filename)
+        pdf2jpg(target, output)
 
 
 if __name__ == "__main__":

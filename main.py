@@ -35,6 +35,8 @@ def main():
     target = Path(filename)
 
     output = DESKTOP / "output"
+    os.makedirs(output, exist_ok=True)
+
     print(f"{filename}: 変換中...")
     pdf2jpg(target, output)
 
